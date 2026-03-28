@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>For My Bro ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+    text-align: center;
+    background: linear-gradient(180deg, #1a001f, #330033);
+    overflow-x: hidden;
+}
+
+/* شاشة الباسورد */
+#login {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+}
+
+#main {
+    display: none;
+}
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    background: #ff4d6d;
+    color: white;
+}
+
+/* القلوب */
+.heart {
+    position: fixed;
+    color: red;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh);}
+    100% {transform: translateY(-10vh);}
+}
+
+.container {
+    padding: 20px;
+}
+
+.box {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+/* الصورة الرئيسية */
+.main-img {
+    width: 280px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+/* الكروت */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+/* صور الأعمار */
+.person {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin:20px;
+}
+
+.person img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔐 باسورد -->
+<div id="login">
+    <h2>🔐 افتح الرسالة يا نجم</h2>
+    <input type="password" id="pass" placeholder="اكتب الباسورد">
+    <br><br>
+    <button onclick="checkPass()">دخول</button>
+</div>
+
+<!-- ❤️ المحتوى -->
+<div id="main">
+<div class="container">
+
+<h1>👑 أخويا قبل ما يكون صاحبي</h1>
+<p>😂❤ قررت افرحك بطريقتي الخاصة يعم</p>
+
+<img src="friend.jpg" class="main-img">
+
+<div class="box">
+<p>❤️ قولت أعملك حاجة صغيرة… بس من قلبي</p>
+<p>😏 يمكن مش بقولها كتير… بس اسمع بقى</p>
+<p>🔥 النهارده الدور عليك تتفاجئ</p>
+<p>💙 دي مش صفحة… دي رسالة ليك</p>
+</div>
+
+<h2>❤️ ربنا يديمك في حياتي يا صاحبي</h2>
+<p>🥺🙈❤ مش صحاب وبس… احنا إخوات</p>
+
+<div class="box">
+<p>😎 اليوم اللي بدأت فيه الصحوبية</p>
+<h3>15 / 5 / 2016</h3>
+</div>
+
+<div class="box">
+<p>❤️ عدد الأيام اللي عشناها سوا ولسه الجاي أحلى</p>
+<h2 id="counter"></h2>
+</div>
+
+<!-- 👑 الأعمار -->
+<div class="box">
+<h2>😎🔥 احنا مش بنعد سنين… احنا بنعد حكايات</h2>
+
+<div class="person">
+    <img src="galal.jpg">
+    <div>
+        <p>👑 جلال</p>
+        <p>🎂 6 / 6 / 2008</p>
+        <h3 id="galalAge"></h3>
+    </div>
+</div>
+
+<hr>
+
+<div class="person">
+    <img src="mohamed.jpg">
+    <div>
+        <p>💙 محمد</p>
+        <p>🎂 1 / 7 / 2009</p>
+        <h3 id="mohamedAge"></h3>
+    </div>
+</div>
+
+</div>
+
+<h2>😂 دوس وشوف الفضايح</h2>
+
+<div class="cards">
+    <div class="card" onclick="showImg('img1.jpg')">🤣</div>
+    <div class="card" onclick="showImg('img2.jpg')">😂</div>
+    <div class="card" onclick="showImg('img3.jpg')">😎</div>
+    <div class="card" onclick="showImg('img4.jpg')">🔥</div>
+</div>
+
+<h3>🔥😂 مزاج الصحوبية</h3>
+
+<audio controls autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<h2>❤️ لو الدنيا كلها راحت… انت مش هتروح</h2>
+
+</div>
+</div>
+
+<script>
+
+// باسورد
+function checkPass() {
+    let password = document.getElementById("pass").value;
+
+    if(password === "sahby") {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        startHearts();
+    } else {
+        alert("❌ غلط يا عم 😂");
+    }
+}
+
+// قلوب
+function startHearts(){
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}, 500);
+}
+
+// عداد الصحوبية
+let startDate = new Date("2016-05-15");
+let today = new Date();
+let diff = today - startDate;
+let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+document.getElementById("counter").innerText = days + " يوم ❤️";
+
+// حساب العمر
+function calculateAge(birthDate) {
+    let today = new Date();
+    let birth = new Date(birthDate);
+
+    let age = today.getFullYear() - birth.getFullYear();
+    let m = today.getMonth() - birth.getMonth();
+
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+document.getElementById("galalAge").innerText =
+"🔥 " + calculateAge("2008-06-06") + " سنة";
+
+document.getElementById("mohamedAge").innerText =
+"💙 " + calculateAge("2009-07-01") + " سنة";
+
+// الصور
+function showImg(src) {
+    let w = window.open("");
+    w.document.write("<img src='" + src + "' width='100%'>");
+}
+
+</script>
+
+</body>
+  </html>
